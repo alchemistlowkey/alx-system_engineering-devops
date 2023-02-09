@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -mFaXn
+ls -mFa
