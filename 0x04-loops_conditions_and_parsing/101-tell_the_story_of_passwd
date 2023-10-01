@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Displays the content of the file /etc/passwd.
+display="/etc/passwd"
+while IFS=":" read -r user pass uid group info homedir shell;
+do
+    printf "The user %s is part of the %s gang, " "$user" "$group"
+    printf "lives in %s and rides %s. %s's place " "$homedir" "$shell" "$uid"
+    printf "is protected by the passcode %s, more info about " "$pass"
+    printf "the user here: %s\n" "$info"
+done < $display
