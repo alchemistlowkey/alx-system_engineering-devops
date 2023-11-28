@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Install nginx on the web server listening on port 80
+# Returns Hello World on GET request
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo service nginx start
+echo  "Hello World!" | sudo tee /var/www/html/index.html
