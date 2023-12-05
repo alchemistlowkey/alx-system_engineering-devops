@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Bash script that transfers a file from our client to a server
+# Example ./0-transfer_file 1-install_load_balancer 35.175.132.181 ubuntu /~/.ssh/id_rsa.pub
 
 if [ "$#" -lt 3 ]
 then
