@@ -1,0 +1,4 @@
+#!/bin/bash
+cp f "$1"
+chmod a+x "$1"
+vim "$1"
