@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Served by host name
+sudo apt-get update
+host_server=$(hostname)
+sudo sed -i "/listen 80 default_server/a \\\tadd_header X-Served-By $host_server;" /etc/nginx/sites-available/default
+sudo service nginx restart
