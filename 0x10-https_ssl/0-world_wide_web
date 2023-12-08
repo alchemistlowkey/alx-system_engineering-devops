@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# A bash script to display the information about the subdomain of a domain
+
+display_subdomain() {
+    local domain="$1"
+    local subdomain="$2"
+    local record
+    local location
+
+    if [ -z "$subdomain" ];
+    then
+        subdomain="www lb-01 web-01 web-02"
+    fi
+
+    for sub in $subdomain;
+    do
+        data=$(dig "${sub}.${domain}" +short)
+        if [ -n "$data" ];
+        then
+            record=$(dig "${sub}.${domain}" | awk '/ANSWER SECTION:/{getline; print $4}')
+            location=$(dig "${sub}.${domain}" | awk '/ANSWER SECTION:/{getline; print $5}')
+            echo "The subdomain ${sub} is a ${record} record and points to ${location}"
+        else
+            echo "The subdomain ${sub} does not exist."
+        fi
+    done
+}
+
+display_subdomain "$1" "$2"
