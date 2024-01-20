@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     """
 
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {"User-Agent": "My-Reddit-header"}
+    headers = {"User-Agent": "alchemist"}
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
